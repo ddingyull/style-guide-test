@@ -1,0 +1,246 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "nomos",
+  "homepage": "https://nomos-ui.vercel.app",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button with Nomos design tokens.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/nomos/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "--color-nomos-primary": "var(--nomos-primary)",
+          "--color-nomos-primary-foreground": "var(--nomos-primary-foreground)",
+          "--color-nomos-secondary": "var(--nomos-secondary)",
+          "--color-nomos-secondary-foreground": "var(--nomos-secondary-foreground)",
+          "--color-nomos-destructive": "var(--nomos-destructive)",
+          "--color-nomos-destructive-foreground": "var(--nomos-destructive-foreground)",
+          "--color-nomos-border": "var(--nomos-border)",
+          "--color-nomos-ring": "var(--nomos-ring)"
+        }
+      }
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Displays a card with header, content, and footer using Nomos design tokens.",
+      "files": [
+        {
+          "path": "registry/nomos/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "--color-nomos-border": "var(--nomos-border)",
+          "--color-nomos-background": "var(--nomos-background)",
+          "--color-nomos-foreground": "var(--nomos-foreground)",
+          "--color-nomos-muted-foreground": "var(--nomos-muted-foreground)"
+        }
+      }
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Displays a form input field with Nomos design tokens.",
+      "files": [
+        {
+          "path": "registry/nomos/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "--color-nomos-border": "var(--nomos-border)",
+          "--color-nomos-background": "var(--nomos-background)",
+          "--color-nomos-foreground": "var(--nomos-foreground)",
+          "--color-nomos-ring": "var(--nomos-ring)"
+        }
+      }
+    },
+    {
+      "name": "login-form",
+      "type": "registry:block",
+      "title": "Login Form",
+      "description": "A login form block with email and password fields using Nomos components.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/nomos/blocks/login-form/login-form.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "use-toast",
+      "type": "registry:hook",
+      "title": "useToast",
+      "description": "A hook for displaying toast notifications.",
+      "files": [
+        {
+          "path": "registry/nomos/hooks/use-toast.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility functions for className merging with tailwind-merge and clsx.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/nomos/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "theme-default",
+      "type": "registry:theme",
+      "title": "Default Theme",
+      "description": "Neutral color theme with balanced gray tones for Nomos components.",
+      "files": [
+        {
+          "path": "registry/nomos/themes/theme-default.css",
+          "type": "registry:theme"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "--nomos-primary": "oklch(0.45 0.05 250)",
+          "--nomos-primary-foreground": "oklch(0.98 0 0)",
+          "--nomos-secondary": "oklch(0.95 0.01 250)",
+          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
+          "--nomos-background": "oklch(1 0 0)",
+          "--nomos-foreground": "oklch(0.15 0 0)",
+          "--nomos-border": "oklch(0.9 0 0)",
+          "--nomos-ring": "oklch(0.45 0.05 250)",
+          "--nomos-destructive": "oklch(0.55 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.96 0 0)",
+          "--nomos-muted-foreground": "oklch(0.5 0 0)"
+        },
+        "dark": {
+          "--nomos-primary": "oklch(0.65 0.08 250)",
+          "--nomos-primary-foreground": "oklch(0.1 0 0)",
+          "--nomos-secondary": "oklch(0.25 0.01 250)",
+          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
+          "--nomos-background": "oklch(0.12 0 0)",
+          "--nomos-foreground": "oklch(0.95 0 0)",
+          "--nomos-border": "oklch(0.25 0 0)",
+          "--nomos-ring": "oklch(0.65 0.08 250)",
+          "--nomos-destructive": "oklch(0.6 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.2 0 0)",
+          "--nomos-muted-foreground": "oklch(0.6 0 0)"
+        }
+      }
+    },
+    {
+      "name": "theme-company-a",
+      "type": "registry:theme",
+      "title": "Company A Theme",
+      "description": "Blue-based color theme for Company A using Nomos components.",
+      "files": [
+        {
+          "path": "registry/nomos/themes/theme-company-a.css",
+          "type": "registry:theme"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "--nomos-primary": "oklch(0.55 0.22 250)",
+          "--nomos-primary-foreground": "oklch(0.98 0 0)",
+          "--nomos-secondary": "oklch(0.95 0.05 250)",
+          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
+          "--nomos-background": "oklch(1 0 0)",
+          "--nomos-foreground": "oklch(0.15 0 0)",
+          "--nomos-border": "oklch(0.9 0.01 250)",
+          "--nomos-ring": "oklch(0.55 0.22 250)",
+          "--nomos-destructive": "oklch(0.55 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.96 0.02 250)",
+          "--nomos-muted-foreground": "oklch(0.5 0 0)"
+        },
+        "dark": {
+          "--nomos-primary": "oklch(0.65 0.22 250)",
+          "--nomos-primary-foreground": "oklch(0.1 0 0)",
+          "--nomos-secondary": "oklch(0.25 0.08 250)",
+          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
+          "--nomos-background": "oklch(0.12 0 0)",
+          "--nomos-foreground": "oklch(0.95 0 0)",
+          "--nomos-border": "oklch(0.25 0.05 250)",
+          "--nomos-ring": "oklch(0.65 0.22 250)",
+          "--nomos-destructive": "oklch(0.6 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.2 0.05 250)",
+          "--nomos-muted-foreground": "oklch(0.6 0 0)"
+        }
+      }
+    },
+    {
+      "name": "theme-company-b",
+      "type": "registry:theme",
+      "title": "Company B Theme",
+      "description": "Red-based color theme for Company B using Nomos components.",
+      "files": [
+        {
+          "path": "registry/nomos/themes/theme-company-b.css",
+          "type": "registry:theme"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "--nomos-primary": "oklch(0.6 0.24 25)",
+          "--nomos-primary-foreground": "oklch(0.98 0 0)",
+          "--nomos-secondary": "oklch(0.95 0.05 25)",
+          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
+          "--nomos-background": "oklch(1 0 0)",
+          "--nomos-foreground": "oklch(0.15 0 0)",
+          "--nomos-border": "oklch(0.9 0.01 25)",
+          "--nomos-ring": "oklch(0.6 0.24 25)",
+          "--nomos-destructive": "oklch(0.55 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.96 0.02 25)",
+          "--nomos-muted-foreground": "oklch(0.5 0 0)"
+        },
+        "dark": {
+          "--nomos-primary": "oklch(0.7 0.24 25)",
+          "--nomos-primary-foreground": "oklch(0.1 0 0)",
+          "--nomos-secondary": "oklch(0.25 0.08 25)",
+          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
+          "--nomos-background": "oklch(0.12 0 0)",
+          "--nomos-foreground": "oklch(0.95 0 0)",
+          "--nomos-border": "oklch(0.25 0.05 25)",
+          "--nomos-ring": "oklch(0.7 0.24 25)",
+          "--nomos-destructive": "oklch(0.6 0.22 25)",
+          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
+          "--nomos-muted": "oklch(0.2 0.05 25)",
+          "--nomos-muted-foreground": "oklch(0.6 0 0)"
+        }
+      }
+    }
+  ]
+}

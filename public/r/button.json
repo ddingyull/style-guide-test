@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "title": "Button",
+  "description": "Displays a button or a component that looks like a button with Nomos design tokens.",
+  "dependencies": [
+    "@base-ui/react",
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "registry/nomos/ui/button.tsx",
+      "content": "import * as React from \"react\"\nimport { Button as BaseButton } from \"@base-ui/react/button\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nomos-ring disabled:pointer-events-none disabled:opacity-50\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-nomos-primary text-nomos-primary-foreground hover:bg-nomos-primary/90\",\n        destructive:\n          \"bg-nomos-destructive text-nomos-destructive-foreground hover:bg-nomos-destructive/90\",\n        outline:\n          \"border border-nomos-border bg-nomos-background hover:bg-nomos-secondary hover:text-nomos-secondary-foreground\",\n        secondary:\n          \"bg-nomos-secondary text-nomos-secondary-foreground hover:bg-nomos-secondary/80\",\n        ghost: \"hover:bg-nomos-secondary hover:text-nomos-secondary-foreground\",\n        link: \"text-nomos-primary underline-offset-4 hover:underline\",\n      },\n      size: {\n        default: \"h-10 px-4 py-2\",\n        sm: \"h-9 rounded-md px-3\",\n        lg: \"h-11 rounded-md px-8\",\n        icon: \"h-10 w-10\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nexport interface ButtonProps\n  extends React.ComponentPropsWithoutRef<typeof BaseButton>,\n    VariantProps<typeof buttonVariants> {}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, ...props }, ref) => {\n    return (\n      <BaseButton\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "cssVars": {
+    "theme": {
+      "--color-nomos-primary": "var(--nomos-primary)",
+      "--color-nomos-primary-foreground": "var(--nomos-primary-foreground)",
+      "--color-nomos-secondary": "var(--nomos-secondary)",
+      "--color-nomos-secondary-foreground": "var(--nomos-secondary-foreground)",
+      "--color-nomos-destructive": "var(--nomos-destructive)",
+      "--color-nomos-destructive-foreground": "var(--nomos-destructive-foreground)",
+      "--color-nomos-border": "var(--nomos-border)",
+      "--color-nomos-ring": "var(--nomos-ring)"
+    }
+  },
+  "type": "registry:ui"
+}

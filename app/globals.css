@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+
+    /* Nomos Design Tokens - Default Theme */
+    --nomos-primary: oklch(0.45 0.05 250);
+    --nomos-primary-foreground: oklch(0.98 0 0);
+    --nomos-secondary: oklch(0.95 0.01 250);
+    --nomos-secondary-foreground: oklch(0.2 0 0);
+    --nomos-background: oklch(1 0 0);
+    --nomos-foreground: oklch(0.15 0 0);
+    --nomos-border: oklch(0.9 0 0);
+    --nomos-ring: oklch(0.45 0.05 250);
+    --nomos-destructive: oklch(0.55 0.22 25);
+    --nomos-destructive-foreground: oklch(0.98 0 0);
+    --nomos-muted: oklch(0.96 0 0);
+    --nomos-muted-foreground: oklch(0.5 0 0);
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* Nomos Design Tokens - Dark Mode */
+    --nomos-primary: oklch(0.65 0.08 250);
+    --nomos-primary-foreground: oklch(0.1 0 0);
+    --nomos-secondary: oklch(0.25 0.01 250);
+    --nomos-secondary-foreground: oklch(0.9 0 0);
+    --nomos-background: oklch(0.12 0 0);
+    --nomos-foreground: oklch(0.95 0 0);
+    --nomos-border: oklch(0.25 0 0);
+    --nomos-ring: oklch(0.65 0.08 250);
+    --nomos-destructive: oklch(0.6 0.22 25);
+    --nomos-destructive-foreground: oklch(0.98 0 0);
+    --nomos-muted: oklch(0.2 0 0);
+    --nomos-muted-foreground: oklch(0.6 0 0);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Nomos Color Tokens */
+  --color-nomos-primary: var(--nomos-primary);
+  --color-nomos-primary-foreground: var(--nomos-primary-foreground);
+  --color-nomos-secondary: var(--nomos-secondary);
+  --color-nomos-secondary-foreground: var(--nomos-secondary-foreground);
+  --color-nomos-background: var(--nomos-background);
+  --color-nomos-foreground: var(--nomos-foreground);
+  --color-nomos-border: var(--nomos-border);
+  --color-nomos-ring: var(--nomos-ring);
+  --color-nomos-destructive: var(--nomos-destructive);
+  --color-nomos-destructive-foreground: var(--nomos-destructive-foreground);
+  --color-nomos-muted: var(--nomos-muted);
+  --color-nomos-muted-foreground: var(--nomos-muted-foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
