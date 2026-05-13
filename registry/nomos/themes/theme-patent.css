@@ -32,8 +32,8 @@
     /* Status & UI */
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
-    --border: #e8e6f0; /* Lavender border */
-    --input: #e8e6f0;
+    --border: #000000; /* Black border */
+    --input: #000000;
     --ring: #667eea;
 
     /* Chart Colors */
@@ -44,7 +44,7 @@
     --chart-5: #d4d0e8; /* Light purple */
 
     /* Border Radius */
-    --radius: 0.5rem; /* 8px */
+    --radius: 0; /* 0px for sharp corners */
 
     /* Sidebar - Glassmorphism */
     --sidebar: rgba(255, 255, 255, 0.7);
@@ -94,8 +94,8 @@
 
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
-    --border: #3a3a55;
-    --input: #3a3a55;
+    --border: #000000; /* Black border for dark mode */
+    --input: #000000;
     --ring: #8b9bff;
 
     --chart-1: #8b9bff;
