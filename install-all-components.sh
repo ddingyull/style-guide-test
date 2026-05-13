@@ -6,7 +6,7 @@
 # Prerequisites:
 # 1. Add this to your components.json:
 #    "registries": {
-#      "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"
+#      "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"
 #    }
 # 2. Run this script in your project root
 
@@ -16,12 +16,19 @@ echo "🚀 Nomos UI Component Installer"
 echo "================================"
 echo ""
 
-# Check if shadcn is available
-if ! command -v pnpm &> /dev/null; then
-    echo "❌ Error: pnpm is not installed"
-    echo "Please install pnpm first: npm install -g pnpm"
+# Detect package manager
+if command -v pnpm &> /dev/null; then
+    PKG_MANAGER="pnpm dlx"
+elif command -v npx &> /dev/null; then
+    PKG_MANAGER="npx --yes"
+else
+    echo "❌ Error: Neither pnpm nor npm/npx is installed"
+    echo "Please install Node.js and npm first"
     exit 1
 fi
+
+echo "📦 Using package manager: ${PKG_MANAGER}"
+echo ""
 
 # Check if components.json exists
 if [ ! -f "components.json" ]; then
@@ -36,7 +43,7 @@ if ! grep -q "@nomos" components.json; then
     echo ""
     echo "Please add this to your components.json:"
     echo '  "registries": {'
-    echo '    "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"'
+    echo '    "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"'
     echo '  }'
     echo ""
     read -p "Do you want to continue anyway? (y/N) " -n 1 -r
@@ -83,7 +90,7 @@ declare -a FAILED_COMPONENTS=()
 for component in "${COMPONENTS[@]}"; do
     echo -e "${BLUE}➤${NC} Installing: ${component}"
 
-    if pnpm dlx shadcn@latest add "@nomos/${component}" --yes --overwrite 2>&1; then
+    if ${PKG_MANAGER} shadcn@latest add "@nomos/${component}" --yes --overwrite 2>&1; then
         echo -e "${GREEN}✓${NC} ${component} installed successfully"
         ((SUCCESS_COUNT++))
     else

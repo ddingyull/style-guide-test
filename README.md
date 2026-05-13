@@ -42,7 +42,7 @@ Built with Next.js 15, TypeScript, Tailwind CSS v4, and based on the [official s
 ```json
 {
   "registries": {
-    "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"
+    "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"
   }
 }
 ```
@@ -51,7 +51,7 @@ Built with Next.js 15, TypeScript, Tailwind CSS v4, and based on the [official s
 
 ```bash
 # Download the script
-curl -O https://raw.githubusercontent.com/your-org/nomos-ui/main/install-all-components.sh
+curl -O https://raw.githubusercontent.com/ddingyull/style-guide-test/main/install-all-components.sh
 
 # Make it executable and run
 chmod +x install-all-components.sh && ./install-all-components.sh
@@ -60,17 +60,21 @@ chmod +x install-all-components.sh && ./install-all-components.sh
 Or in one command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/your-org/nomos-ui/main/install-all-components.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ddingyull/style-guide-test/main/install-all-components.sh | bash
 ```
 
-This will install all 16 components automatically.
+This will install all 16 components automatically using either **npx** or **pnpm** (auto-detected).
 
 ### Method 2: Direct URL
 
 Install components directly from the registry URL:
 
 ```bash
-pnpm dlx shadcn@latest add https://nomos-ui.vercel.app/r/button.json
+# Using npx
+npx shadcn@latest add https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/button.json
+
+# Using pnpm
+pnpm dlx shadcn@latest add https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/button.json
 ```
 
 ### Method 3: Registry Alias
@@ -80,7 +84,7 @@ Add the registry to your `components.json`:
 ```json
 {
   "registries": {
-    "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"
+    "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"
   }
 }
 ```
@@ -88,6 +92,12 @@ Add the registry to your `components.json`:
 Then install components using the alias:
 
 ```bash
+# Using npx
+npx shadcn@latest add @nomos/button
+npx shadcn@latest add @nomos/card
+npx shadcn@latest add @nomos/login-form
+
+# Using pnpm
 pnpm dlx shadcn@latest add @nomos/button
 pnpm dlx shadcn@latest add @nomos/card
 pnpm dlx shadcn@latest add @nomos/login-form
