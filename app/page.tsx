@@ -1,5 +1,6 @@
 import registry from "@/public/r/registry.json"
 import { ComponentCard } from "@/components/component-card"
+import { ComponentShowcase } from "@/components/component-showcase"
 
 export default function Home() {
   const uiComponents = registry.items.filter(item => item.type === "registry:ui")
@@ -22,6 +23,16 @@ export default function Home() {
             Reuse components across projects while maintaining brand identity.
           </p>
         </header>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6 text-nomos-foreground">
+            Component Preview
+          </h2>
+          <p className="text-nomos-muted-foreground mb-6">
+            See how the components look with border-radius 0 and #000 borders
+          </p>
+          <ComponentShowcase />
+        </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6 text-nomos-foreground">
