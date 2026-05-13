@@ -1,210 +1,42 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "nomos",
-  "homepage": "https://nomos-ui.vercel.app",
+  "homepage": "https://github.com/ddingyull/style-guide-test",
   "items": [
     {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Displays a button or a component that looks like a button with Nomos design tokens.",
-      "dependencies": [
-        "@base-ui/react",
-        "class-variance-authority"
-      ],
+      "description": "A button component with black border and sharp corners.",
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
       "files": [
         {
           "path": "registry/nomos/ui/button.tsx",
           "type": "registry:ui"
         }
-      ],
-      "cssVars": {
-        "theme": {
-          "--color-nomos-primary": "var(--nomos-primary)",
-          "--color-nomos-primary-foreground": "var(--nomos-primary-foreground)",
-          "--color-nomos-secondary": "var(--nomos-secondary)",
-          "--color-nomos-secondary-foreground": "var(--nomos-secondary-foreground)",
-          "--color-nomos-destructive": "var(--nomos-destructive)",
-          "--color-nomos-destructive-foreground": "var(--nomos-destructive-foreground)",
-          "--color-nomos-border": "var(--nomos-border)",
-          "--color-nomos-ring": "var(--nomos-ring)"
-        }
-      }
-    },
-    {
-      "name": "card",
-      "type": "registry:ui",
-      "title": "Card",
-      "description": "Displays a card with header, content, and footer using Nomos design tokens.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/card.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "cssVars": {
-        "theme": {
-          "--color-nomos-border": "var(--nomos-border)",
-          "--color-nomos-background": "var(--nomos-background)",
-          "--color-nomos-foreground": "var(--nomos-foreground)",
-          "--color-nomos-muted-foreground": "var(--nomos-muted-foreground)"
-        }
-      }
+      ]
     },
     {
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
-      "description": "Displays a form input field with Nomos design tokens.",
+      "description": "An input field component with black border and sharp corners.",
       "files": [
         {
           "path": "registry/nomos/ui/input.tsx",
           "type": "registry:ui"
         }
-      ],
-      "cssVars": {
-        "theme": {
-          "--color-nomos-border": "var(--nomos-border)",
-          "--color-nomos-background": "var(--nomos-background)",
-          "--color-nomos-foreground": "var(--nomos-foreground)",
-          "--color-nomos-ring": "var(--nomos-ring)"
-        }
-      }
+      ]
     },
     {
-      "name": "calendar",
+      "name": "card",
       "type": "registry:ui",
-      "title": "Calendar",
-      "description": "A date picker calendar component.",
+      "title": "Card",
+      "description": "A card component with black border and sharp corners for content grouping.",
       "files": [
         {
-          "path": "registry/nomos/ui/calendar.tsx",
+          "path": "registry/nomos/ui/card.tsx",
           "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "dialog",
-      "type": "registry:ui",
-      "title": "Dialog",
-      "description": "A modal dialog component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/dialog.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "dropdown-menu",
-      "type": "registry:ui",
-      "title": "Dropdown Menu",
-      "description": "A dropdown menu component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/dropdown-menu.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "label",
-      "type": "registry:ui",
-      "title": "Label",
-      "description": "A form label component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/label.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "select",
-      "type": "registry:ui",
-      "title": "Select",
-      "description": "A select dropdown component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/select.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "sheet",
-      "type": "registry:ui",
-      "title": "Sheet",
-      "description": "A slide-over panel component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/sheet.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "skeleton",
-      "type": "registry:ui",
-      "title": "Skeleton",
-      "description": "A loading skeleton component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/skeleton.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "sonner",
-      "type": "registry:ui",
-      "title": "Sonner",
-      "description": "Toast notification component using Sonner.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/sonner.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "table",
-      "type": "registry:ui",
-      "title": "Table",
-      "description": "A data table component.",
-      "files": [
-        {
-          "path": "registry/nomos/ui/table.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "login-form",
-      "type": "registry:block",
-      "title": "Login Form",
-      "description": "A login form block with email and password fields using Nomos components.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "input"
-      ],
-      "files": [
-        {
-          "path": "registry/nomos/blocks/login-form/login-form.tsx",
-          "type": "registry:block"
-        }
-      ]
-    },
-    {
-      "name": "use-toast",
-      "type": "registry:hook",
-      "title": "useToast",
-      "description": "A hook for displaying toast notifications.",
-      "files": [
-        {
-          "path": "registry/nomos/hooks/use-toast.ts",
-          "type": "registry:hook"
         }
       ]
     },
@@ -213,72 +45,13 @@
       "type": "registry:lib",
       "title": "Utils",
       "description": "Utility functions for className merging with tailwind-merge and clsx.",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/nomos/lib/utils.ts",
           "type": "registry:lib"
         }
       ]
-    },
-    {
-      "name": "theme-patent",
-      "type": "registry:theme",
-      "title": "Patent Secretary Theme",
-      "description": "Hex-based purple/blue theme matching nomos-secretary visual style (#667eea primary).",
-      "files": [
-        {
-          "path": "registry/nomos/themes/theme-patent.css",
-          "type": "registry:theme"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "--background": "#fafbff",
-          "--foreground": "#1a1a2e",
-          "--card": "#ffffff",
-          "--card-foreground": "#1a1a2e",
-          "--popover": "#ffffff",
-          "--popover-foreground": "#1a1a2e",
-          "--primary": "#667eea",
-          "--primary-foreground": "#ffffff",
-          "--secondary": "#f0eeff",
-          "--secondary-foreground": "#1a1a2e",
-          "--muted": "#f0eeff",
-          "--muted-foreground": "#64748b",
-          "--accent": "#e8e6f0",
-          "--accent-foreground": "#667eea",
-          "--destructive": "#ef4444",
-          "--destructive-foreground": "#ffffff",
-          "--border": "#e8e6f0",
-          "--input": "#e8e6f0",
-          "--ring": "#667eea"
-        },
-        "dark": {
-          "--background": "#1a1a2e",
-          "--foreground": "#fafbff",
-          "--card": "#252540",
-          "--card-foreground": "#fafbff",
-          "--popover": "#252540",
-          "--popover-foreground": "#fafbff",
-          "--primary": "#8b9bff",
-          "--primary-foreground": "#1a1a2e",
-          "--secondary": "#2a2a45",
-          "--secondary-foreground": "#fafbff",
-          "--muted": "#2a2a45",
-          "--muted-foreground": "#94a3b8",
-          "--accent": "#3a3a55",
-          "--accent-foreground": "#8b9bff",
-          "--destructive": "#ef4444",
-          "--destructive-foreground": "#ffffff",
-          "--border": "#3a3a55",
-          "--input": "#3a3a55",
-          "--ring": "#8b9bff"
-        }
-      }
     }
   ]
 }

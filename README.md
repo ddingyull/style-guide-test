@@ -1,389 +1,203 @@
-# Nomos Design System
+# Nomos UI Registry
 
-A custom shadcn/ui registry for the Nomos design system. This registry enables multiple companies to share common components while maintaining distinct brand identities through theming.
-
-Built with Next.js 15, TypeScript, Tailwind CSS v4, and based on the [official shadcn/ui registry template](https://github.com/shadcn-ui/registry-template).
-
-## Features
-
-- **Multi-company Theming**: Shared components with company-specific color schemes
-- **shadcn/ui Compatible**: Fully compatible with shadcn CLI
-- **Tailwind v4**: Modern CSS with oklch color space
-- **Type Safe**: Full TypeScript support
-- **Easy Integration**: Install components via URL or registry alias
+A minimal shadcn/ui component registry with black borders and sharp corners.
 
 ## Components
 
-### UI Components
-- `button` - Button component with multiple variants
-- `card` - Card with header, content, and footer
-- `input` - Form input field
+- **Button** - Button component with black border
+- **Input** - Input field with black border
+- **Card** - Card container with black border
 
-### Blocks
-- `login-form` - Complete login form using card, input, and button
+## Installation
 
-### Hooks
-- `use-toast` - Toast notification hook
+### Step 1: Setup your project
 
-### Utilities
-- `utils` - className merging utility (cn function)
+If you haven't already, initialize shadcn/ui in your project:
 
-### Themes
-- `theme-default` - Neutral gray theme
-- `theme-company-a` - Blue-based theme
-- `theme-company-b` - Red-based theme
+```bash
+npx shadcn@latest init
+```
 
-## Installation Methods
+### Step 2: Add the registry
 
-### Method 1: Install All Components at Once (Recommended)
-
-**Step 1**: Add the Nomos registry to your `components.json`:
+Add this registry to your `components.json`:
 
 ```json
 {
   "registries": {
-    "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"
+    "@nomos": "https://raw.githubusercontent.com/YOUR_USERNAME/nomos-ui/main/r/{name}.json"
   }
 }
 ```
 
-**Step 2**: Download and run the installation script:
+Replace `YOUR_USERNAME` with your GitHub username.
 
-```bash
-# Download the script
-curl -O https://raw.githubusercontent.com/ddingyull/style-guide-test/main/install-all-components.sh
-
-# Make it executable and run
-chmod +x install-all-components.sh && ./install-all-components.sh
-```
-
-Or in one command:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/ddingyull/style-guide-test/main/install-all-components.sh | bash
-```
-
-This will install all 16 components automatically using either **npx** or **pnpm** (auto-detected).
-
-### Method 2: Direct URL
-
-Install components directly from the registry URL:
-
-```bash
-# Using npx
-npx shadcn@latest add https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/button.json
-
-# Using pnpm
-pnpm dlx shadcn@latest add https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/button.json
-```
-
-### Method 3: Registry Alias
-
-Add the registry to your `components.json`:
-
-```json
-{
-  "registries": {
-    "@nomos": "https://raw.githubusercontent.com/ddingyull/style-guide-test/main/public/r/{name}.json"
-  }
-}
-```
-
-Then install components using the alias:
-
-```bash
-# Using npx
-npx shadcn@latest add @nomos/button
-npx shadcn@latest add @nomos/card
-npx shadcn@latest add @nomos/login-form
-
-# Using pnpm
-pnpm dlx shadcn@latest add @nomos/button
-pnpm dlx shadcn@latest add @nomos/card
-pnpm dlx shadcn@latest add @nomos/login-form
-```
-
-## Applying Company Themes
-
-### Option 1: Import Theme CSS
-
-Add a theme import to your `app/globals.css`:
-
-```css
-@import "@/registry/nomos/themes/theme-company-a.css";
-```
-
-### Option 2: Install as Component
-
-```bash
-pnpm dlx shadcn@latest add @nomos/theme-company-a
-```
-
-Then import in your root layout or globals.css.
-
-### Option 3: Custom Theme
-
-Create your own theme by copying a theme file and modifying the color values:
-
-```css
-@layer base {
-  :root {
-    --nomos-primary: oklch(0.6 0.25 180); /* Your brand color */
-    /* ... other tokens */
-  }
-}
-
-@theme inline {
-  --color-nomos-primary: var(--nomos-primary);
-  /* ... map all tokens */
-}
-```
-
-## Local Development
-
-### Prerequisites
-
-- Node.js 20+
-- pnpm
-
-### Setup
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd nomos-ui
-
-# Install dependencies
-pnpm install
-
-# Run development server
-pnpm dev
-```
-
-Visit `http://localhost:3000` to see the component catalog.
-
-### Building the Registry
-
-After adding or modifying components:
-
-```bash
-pnpm run registry:build
-```
-
-This generates JSON files in `public/r/` that can be consumed by the shadcn CLI.
-
-## Adding New Components
-
-### 1. Create Component File
-
-Add your component to the appropriate directory:
-
-```
-registry/nomos/ui/my-component.tsx
-registry/nomos/blocks/my-block/my-block.tsx
-registry/nomos/hooks/use-my-hook.ts
-```
-
-**Important**: Use only Nomos CSS variables for styling:
-- `bg-nomos-primary`, `text-nomos-foreground`, `border-nomos-border`, etc.
-- Never hardcode colors like `bg-blue-500`
-
-### 2. Register in registry.json
-
-Add an entry to `registry.json`:
-
-```json
-{
-  "name": "my-component",
-  "type": "registry:ui",
-  "title": "My Component",
-  "description": "Description of my component",
-  "dependencies": ["any-npm-packages"],
-  "registryDependencies": ["button", "card"],
-  "files": [
-    {
-      "path": "registry/nomos/ui/my-component.tsx",
-      "type": "registry:ui"
-    }
-  ],
-  "cssVars": {
-    "theme": {
-      "--color-nomos-primary": "var(--nomos-primary)"
-    }
-  }
-}
-```
-
-### 3. Build Registry
-
-```bash
-pnpm run registry:build
-```
-
-### 4. Test Installation
-
-```bash
-pnpm dlx shadcn@latest add https://nomos-ui.vercel.app/r/my-component.json
-```
-
-## Design Token Reference
-
-All components use the following CSS variables:
-
-### Color Tokens
-
-```css
---nomos-primary              /* Primary brand color */
---nomos-primary-foreground   /* Text on primary */
---nomos-secondary            /* Secondary color */
---nomos-secondary-foreground /* Text on secondary */
---nomos-background           /* Page background */
---nomos-foreground           /* Primary text */
---nomos-border               /* Border color */
---nomos-ring                 /* Focus ring */
---nomos-destructive          /* Destructive actions */
---nomos-destructive-foreground /* Text on destructive */
---nomos-muted                /* Muted backgrounds */
---nomos-muted-foreground     /* Muted text */
-```
-
-Use them in Tailwind classes:
-
-```tsx
-<div className="bg-nomos-primary text-nomos-primary-foreground">
-  <button className="border-nomos-border hover:bg-nomos-secondary">
-    Click me
-  </button>
-</div>
-```
-
-## Project Structure
-
-```
-nomos-ui/
-├── app/                      # Next.js App Router
-│   ├── page.tsx             # Component catalog
-│   ├── layout.tsx
-│   └── globals.css
-├── components/              # Catalog site components
-│   └── component-card.tsx
-├── lib/                     # Site utilities
-│   └── utils.ts
-├── registry/
-│   └── nomos/              # Registry namespace
-│       ├── ui/             # UI components
-│       ├── blocks/         # Composite blocks
-│       ├── hooks/          # React hooks
-│       ├── lib/            # Utilities
-│       └── themes/         # Theme CSS files
-├── public/
-│   └── r/                  # Built registry JSON (auto-generated)
-├── registry.json           # Registry configuration
-├── components.json         # shadcn configuration
-└── package.json
-```
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push to GitHub
-2. Import project in Vercel
-3. Deploy
-
-The registry will be available at `https://your-project.vercel.app/r/{component}.json`
-
-### Other Platforms
-
-Build the Next.js app:
-
-```bash
-pnpm run build
-```
-
-Ensure `public/r/` is included in your deployment.
-
-## Usage in Client Projects
-
-### Initial Setup
-
-In your client project:
-
-```bash
-# Initialize shadcn (if not already done)
-pnpm dlx shadcn@latest init
-
-# Add Nomos registry to components.json
-```
-
-Edit `components.json`:
-
-```json
-{
-  "registries": {
-    "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"
-  }
-}
-```
-
-### Install Components
+### Step 3: Install components
 
 ```bash
 # Install individual components
+npx shadcn@latest add @nomos/button
+npx shadcn@latest add @nomos/input
+npx shadcn@latest add @nomos/card
+
+# Or using pnpm
 pnpm dlx shadcn@latest add @nomos/button
+pnpm dlx shadcn@latest add @nomos/input
 pnpm dlx shadcn@latest add @nomos/card
-
-# Install a theme
-pnpm dlx shadcn@latest add @nomos/theme-company-a
 ```
 
-### Apply Theme
+## Usage in Patent-Secretary
 
-Import the theme in your `app/globals.css`:
+### Method 1: Direct URL (Recommended for testing)
 
-```css
-@import "@/components/themes/theme-company-a.css";
+```bash
+cd Patent-secretary
+npx shadcn@latest add https://raw.githubusercontent.com/YOUR_USERNAME/nomos-ui/main/r/button.json
 ```
 
-Or if you installed via shadcn, it will be in your components directory.
+### Method 2: Registry Alias (Recommended for production)
 
-## Contributing
+1. Edit `Patent-secretary/components.json`:
 
-1. Create a new component following the guidelines above
-2. Add it to `registry.json`
-3. Build and test: `pnpm run registry:build`
-4. Submit a pull request
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "registries": {
+    "@nomos": "https://raw.githubusercontent.com/YOUR_USERNAME/nomos-ui/main/r/{name}.json"
+  }
+}
+```
+
+2. Install components:
+
+```bash
+cd Patent-secretary
+npx shadcn@latest add @nomos/button
+npx shadcn@latest add @nomos/input
+npx shadcn@latest add @nomos/card
+```
+
+3. Use in your code:
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+
+export default function MyPage() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Login</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <Input placeholder="Email" />
+          <Input type="password" placeholder="Password" />
+          <Button>Sign in</Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+## Publishing to GitHub
+
+### 1. Build the registry
+
+```bash
+pnpm run registry:build
+```
+
+This creates JSON files in the `r/` directory.
+
+### 2. Update registry.json
+
+Edit [registry.json](registry.json:4) and replace `YOUR_USERNAME`:
+
+```json
+{
+  "homepage": "https://github.com/YOUR_USERNAME/nomos-ui"
+}
+```
+
+### 3. Commit and push
+
+```bash
+git add .
+git commit -m "feat: minimal registry with black border components"
+git push origin main
+```
+
+### 4. Enable GitHub Pages (Optional)
+
+If you want a live preview:
+
+1. Go to your repository Settings → Pages
+2. Select "Deploy from a branch"
+3. Choose "main" branch and "/root" folder
+4. Save
+
+Your components will be available at:
+- Registry: `https://raw.githubusercontent.com/YOUR_USERNAME/nomos-ui/main/r/{name}.json`
+- Preview: `https://YOUR_USERNAME.github.io/nomos-ui/`
+
+## Component Features
+
+All components have:
+- ✅ Black borders (`border-[#000]`)
+- ✅ Sharp corners (`rounded-none` / `--radius: 0`)
+- ✅ Clean, minimal design
+- ✅ TypeScript support
+- ✅ Tailwind CSS v4 compatible
+
+## Local Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run dev server
+pnpm dev
+
+# Build registry
+pnpm run registry:build
+```
+
+Visit `http://localhost:3000` to see the components.
 
 ## Troubleshooting
 
-### TypeScript Errors
+### Components not found
 
-Run type check:
+Make sure you:
+1. Built the registry: `pnpm run registry:build`
+2. Pushed the `r/` directory to GitHub
+3. Used the correct GitHub username in the URL
 
-```bash
-pnpm tsc --noEmit
+### Import errors
+
+The components will be installed to your project's `components/ui/` directory. Import them like this:
+
+```tsx
+import { Button } from "@/components/ui/button"
 ```
-
-### Build Errors
-
-Ensure all file paths in `registry.json` are correct:
-- Paths should be relative to project root
-- Use forward slashes: `registry/nomos/ui/button.tsx`
-
-### Component Not Found
-
-After adding a component:
-1. Verify entry in `registry.json`
-2. Run `pnpm run registry:build`
-3. Check `public/r/{component}.json` exists
 
 ## License
 
 MIT
-
-## Resources
-
-- [shadcn/ui Documentation](https://ui.shadcn.com)
-- [Official Registry Template](https://github.com/shadcn-ui/registry-template)
-- [Tailwind CSS v4](https://tailwindcss.com/docs)
-- [Next.js Documentation](https://nextjs.org/docs)
