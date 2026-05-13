@@ -117,128 +117,58 @@
       ]
     },
     {
-      "name": "theme-default",
+      "name": "theme-patent",
       "type": "registry:theme",
-      "title": "Default Theme",
-      "description": "Neutral color theme with balanced gray tones for Nomos components.",
+      "title": "Patent Secretary Theme",
+      "description": "Hex-based purple/blue theme matching nomos-secretary visual style (#667eea primary).",
       "files": [
         {
-          "path": "registry/nomos/themes/theme-default.css",
+          "path": "registry/nomos/themes/theme-patent.css",
           "type": "registry:theme"
         }
       ],
       "cssVars": {
         "light": {
-          "--nomos-primary": "oklch(0.45 0.05 250)",
-          "--nomos-primary-foreground": "oklch(0.98 0 0)",
-          "--nomos-secondary": "oklch(0.95 0.01 250)",
-          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
-          "--nomos-background": "oklch(1 0 0)",
-          "--nomos-foreground": "oklch(0.15 0 0)",
-          "--nomos-border": "oklch(0.9 0 0)",
-          "--nomos-ring": "oklch(0.45 0.05 250)",
-          "--nomos-destructive": "oklch(0.55 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.96 0 0)",
-          "--nomos-muted-foreground": "oklch(0.5 0 0)"
+          "--background": "#fafbff",
+          "--foreground": "#1a1a2e",
+          "--card": "#ffffff",
+          "--card-foreground": "#1a1a2e",
+          "--popover": "#ffffff",
+          "--popover-foreground": "#1a1a2e",
+          "--primary": "#667eea",
+          "--primary-foreground": "#ffffff",
+          "--secondary": "#f0eeff",
+          "--secondary-foreground": "#1a1a2e",
+          "--muted": "#f0eeff",
+          "--muted-foreground": "#64748b",
+          "--accent": "#e8e6f0",
+          "--accent-foreground": "#667eea",
+          "--destructive": "#ef4444",
+          "--destructive-foreground": "#ffffff",
+          "--border": "#e8e6f0",
+          "--input": "#e8e6f0",
+          "--ring": "#667eea"
         },
         "dark": {
-          "--nomos-primary": "oklch(0.65 0.08 250)",
-          "--nomos-primary-foreground": "oklch(0.1 0 0)",
-          "--nomos-secondary": "oklch(0.25 0.01 250)",
-          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
-          "--nomos-background": "oklch(0.12 0 0)",
-          "--nomos-foreground": "oklch(0.95 0 0)",
-          "--nomos-border": "oklch(0.25 0 0)",
-          "--nomos-ring": "oklch(0.65 0.08 250)",
-          "--nomos-destructive": "oklch(0.6 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.2 0 0)",
-          "--nomos-muted-foreground": "oklch(0.6 0 0)"
-        }
-      }
-    },
-    {
-      "name": "theme-company-a",
-      "type": "registry:theme",
-      "title": "Company A Theme",
-      "description": "Blue-based color theme for Company A using Nomos components.",
-      "files": [
-        {
-          "path": "registry/nomos/themes/theme-company-a.css",
-          "type": "registry:theme"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "--nomos-primary": "oklch(0.55 0.22 250)",
-          "--nomos-primary-foreground": "oklch(0.98 0 0)",
-          "--nomos-secondary": "oklch(0.95 0.05 250)",
-          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
-          "--nomos-background": "oklch(1 0 0)",
-          "--nomos-foreground": "oklch(0.15 0 0)",
-          "--nomos-border": "oklch(0.9 0.01 250)",
-          "--nomos-ring": "oklch(0.55 0.22 250)",
-          "--nomos-destructive": "oklch(0.55 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.96 0.02 250)",
-          "--nomos-muted-foreground": "oklch(0.5 0 0)"
-        },
-        "dark": {
-          "--nomos-primary": "oklch(0.65 0.22 250)",
-          "--nomos-primary-foreground": "oklch(0.1 0 0)",
-          "--nomos-secondary": "oklch(0.25 0.08 250)",
-          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
-          "--nomos-background": "oklch(0.12 0 0)",
-          "--nomos-foreground": "oklch(0.95 0 0)",
-          "--nomos-border": "oklch(0.25 0.05 250)",
-          "--nomos-ring": "oklch(0.65 0.22 250)",
-          "--nomos-destructive": "oklch(0.6 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.2 0.05 250)",
-          "--nomos-muted-foreground": "oklch(0.6 0 0)"
-        }
-      }
-    },
-    {
-      "name": "theme-company-b",
-      "type": "registry:theme",
-      "title": "Company B Theme",
-      "description": "Red-based color theme for Company B using Nomos components.",
-      "files": [
-        {
-          "path": "registry/nomos/themes/theme-company-b.css",
-          "type": "registry:theme"
-        }
-      ],
-      "cssVars": {
-        "light": {
-          "--nomos-primary": "oklch(0.6 0.24 25)",
-          "--nomos-primary-foreground": "oklch(0.98 0 0)",
-          "--nomos-secondary": "oklch(0.95 0.05 25)",
-          "--nomos-secondary-foreground": "oklch(0.2 0 0)",
-          "--nomos-background": "oklch(1 0 0)",
-          "--nomos-foreground": "oklch(0.15 0 0)",
-          "--nomos-border": "oklch(0.9 0.01 25)",
-          "--nomos-ring": "oklch(0.6 0.24 25)",
-          "--nomos-destructive": "oklch(0.55 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.96 0.02 25)",
-          "--nomos-muted-foreground": "oklch(0.5 0 0)"
-        },
-        "dark": {
-          "--nomos-primary": "oklch(0.7 0.24 25)",
-          "--nomos-primary-foreground": "oklch(0.1 0 0)",
-          "--nomos-secondary": "oklch(0.25 0.08 25)",
-          "--nomos-secondary-foreground": "oklch(0.9 0 0)",
-          "--nomos-background": "oklch(0.12 0 0)",
-          "--nomos-foreground": "oklch(0.95 0 0)",
-          "--nomos-border": "oklch(0.25 0.05 25)",
-          "--nomos-ring": "oklch(0.7 0.24 25)",
-          "--nomos-destructive": "oklch(0.6 0.22 25)",
-          "--nomos-destructive-foreground": "oklch(0.98 0 0)",
-          "--nomos-muted": "oklch(0.2 0.05 25)",
-          "--nomos-muted-foreground": "oklch(0.6 0 0)"
+          "--background": "#1a1a2e",
+          "--foreground": "#fafbff",
+          "--card": "#252540",
+          "--card-foreground": "#fafbff",
+          "--popover": "#252540",
+          "--popover-foreground": "#fafbff",
+          "--primary": "#8b9bff",
+          "--primary-foreground": "#1a1a2e",
+          "--secondary": "#2a2a45",
+          "--secondary-foreground": "#fafbff",
+          "--muted": "#2a2a45",
+          "--muted-foreground": "#94a3b8",
+          "--accent": "#3a3a55",
+          "--accent-foreground": "#8b9bff",
+          "--destructive": "#ef4444",
+          "--destructive-foreground": "#ffffff",
+          "--border": "#3a3a55",
+          "--input": "#3a3a55",
+          "--ring": "#8b9bff"
         }
       }
     }

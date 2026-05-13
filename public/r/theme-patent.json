@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-patent",
+  "title": "Patent Secretary Theme",
+  "description": "Hex-based purple/blue theme matching nomos-secretary visual style (#667eea primary).",
+  "files": [
+    {
+      "path": "registry/nomos/themes/theme-patent.css",
+      "content": "/**\n * Patent Secretary Theme\n * Hex-based design tokens matching nomos-secretary visual style\n * Primary: #667eea (purple/blue), Secondary: #764ba2 (deep purple)\n */\n\n@layer base {\n  :root {\n    /* Font Stack - SF Pro Text preferred, Noto Sans KR fallback */\n    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans KR',\n      'Apple SD Gothic Neo', sans-serif;\n    --font-mono: 'SF Mono', Menlo, Monaco, monospace;\n\n    /* Base Colors */\n    --background: #fafbff; /* Very light blue */\n    --foreground: #1a1a2e; /* Dark navy */\n    --card: #ffffff; /* Pure white */\n    --card-foreground: #1a1a2e;\n    --popover: #ffffff;\n    --popover-foreground: #1a1a2e;\n\n    /* Brand - Primary Purple/Blue (#667eea) */\n    --primary: #667eea;\n    --primary-foreground: #ffffff;\n    --secondary: #f0eeff; /* Very light purple */\n    --secondary-foreground: #1a1a2e;\n    --muted: #f0eeff;\n    --muted-foreground: #64748b;\n    --accent: #e8e6f0; /* Light lavender */\n    --accent-foreground: #667eea;\n\n    /* Status & UI */\n    --destructive: #ef4444;\n    --destructive-foreground: #ffffff;\n    --border: #e8e6f0; /* Lavender border */\n    --input: #e8e6f0;\n    --ring: #667eea;\n\n    /* Chart Colors */\n    --chart-1: #667eea; /* Primary */\n    --chart-2: #764ba2; /* Deep purple */\n    --chart-3: #94a3b8; /* Gray */\n    --chart-4: #5a6fd6; /* Deeper blue */\n    --chart-5: #d4d0e8; /* Light purple */\n\n    /* Border Radius */\n    --radius: 0.5rem; /* 8px */\n\n    /* Sidebar - Glassmorphism */\n    --sidebar: rgba(255, 255, 255, 0.7);\n    --sidebar-foreground: #1a1a2e;\n    --sidebar-primary: #667eea;\n    --sidebar-primary-foreground: #ffffff;\n    --sidebar-accent: rgba(102, 126, 234, 0.08);\n    --sidebar-accent-foreground: #667eea;\n    --sidebar-border: rgba(232, 230, 240, 0.5);\n    --sidebar-ring: #667eea;\n\n    /* File Type Colors (from nomos-secretary) */\n    --color-dt-data: #667eea;\n    --color-dt-doc: #667eea;\n    --color-dt-email: #0ea5e9; /* Sky blue */\n    --color-dt-excel: #217346; /* Green */\n    --color-dt-hwp: #2b6cb0; /* Blue */\n    --color-dt-image: #7c3aed; /* Purple */\n    --color-dt-pdf: #dc2626; /* Red */\n    --color-dt-ppt: #d24726; /* Orange */\n    --color-dt-task: #16a34a; /* Green */\n    --color-dt-word: #2b579a; /* Deep blue */\n\n    /* Status Colors (iOS style) */\n    --color-success: #22c55e;\n    --color-warning: #f59e0b;\n    --color-error: #ff3b30; /* iOS system red */\n    --color-info: #007aff; /* iOS blue */\n  }\n\n  .dark {\n    --background: #1a1a2e; /* Dark navy */\n    --foreground: #fafbff; /* Very light blue */\n    --card: #252540;\n    --card-foreground: #fafbff;\n    --popover: #252540;\n    --popover-foreground: #fafbff;\n\n    --primary: #8b9bff; /* Lighter purple for dark mode */\n    --primary-foreground: #1a1a2e;\n    --secondary: #2a2a45;\n    --secondary-foreground: #fafbff;\n    --muted: #2a2a45;\n    --muted-foreground: #94a3b8;\n    --accent: #3a3a55;\n    --accent-foreground: #8b9bff;\n\n    --destructive: #ef4444;\n    --destructive-foreground: #ffffff;\n    --border: #3a3a55;\n    --input: #3a3a55;\n    --ring: #8b9bff;\n\n    --chart-1: #8b9bff;\n    --chart-2: #9a7bc2;\n    --chart-3: #64748b;\n    --chart-4: #7a8fe6;\n    --chart-5: #4a4a65;\n\n    --sidebar: rgba(37, 37, 64, 0.8);\n    --sidebar-foreground: #fafbff;\n    --sidebar-primary: #8b9bff;\n    --sidebar-primary-foreground: #1a1a2e;\n    --sidebar-accent: rgba(139, 155, 255, 0.1);\n    --sidebar-accent-foreground: #8b9bff;\n    --sidebar-border: rgba(58, 58, 85, 0.5);\n    --sidebar-ring: #8b9bff;\n  }\n}\n\n/* Background Gradient (optional) */\nbody {\n  background: linear-gradient(135deg, #fafbff 0%, #f5f3ff 50%, #faf5ff 100%);\n}\n\n.dark body {\n  background: linear-gradient(135deg, #1a1a2e 0%, #252540 50%, #2a2045 100%);\n}\n\n/* Custom Scrollbar (nomos-secretary style) */\n::-webkit-scrollbar {\n  width: 6px;\n  height: 6px;\n}\n\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n::-webkit-scrollbar-thumb {\n  background: rgba(0, 0, 0, 0.15);\n  border-radius: 3px;\n}\n\n::-webkit-scrollbar-thumb:hover {\n  background: rgba(0, 0, 0, 0.25);\n}\n\n.dark ::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.15);\n}\n\n.dark ::-webkit-scrollbar-thumb:hover {\n  background: rgba(255, 255, 255, 0.25);\n}\n",
+      "type": "registry:theme"
+    }
+  ],
+  "cssVars": {
+    "light": {
+      "--background": "#fafbff",
+      "--foreground": "#1a1a2e",
+      "--card": "#ffffff",
+      "--card-foreground": "#1a1a2e",
+      "--popover": "#ffffff",
+      "--popover-foreground": "#1a1a2e",
+      "--primary": "#667eea",
+      "--primary-foreground": "#ffffff",
+      "--secondary": "#f0eeff",
+      "--secondary-foreground": "#1a1a2e",
+      "--muted": "#f0eeff",
+      "--muted-foreground": "#64748b",
+      "--accent": "#e8e6f0",
+      "--accent-foreground": "#667eea",
+      "--destructive": "#ef4444",
+      "--destructive-foreground": "#ffffff",
+      "--border": "#e8e6f0",
+      "--input": "#e8e6f0",
+      "--ring": "#667eea"
+    },
+    "dark": {
+      "--background": "#1a1a2e",
+      "--foreground": "#fafbff",
+      "--card": "#252540",
+      "--card-foreground": "#fafbff",
+      "--popover": "#252540",
+      "--popover-foreground": "#fafbff",
+      "--primary": "#8b9bff",
+      "--primary-foreground": "#1a1a2e",
+      "--secondary": "#2a2a45",
+      "--secondary-foreground": "#fafbff",
+      "--muted": "#2a2a45",
+      "--muted-foreground": "#94a3b8",
+      "--accent": "#3a3a55",
+      "--accent-foreground": "#8b9bff",
+      "--destructive": "#ef4444",
+      "--destructive-foreground": "#ffffff",
+      "--border": "#3a3a55",
+      "--input": "#3a3a55",
+      "--ring": "#8b9bff"
+    }
+  },
+  "type": "registry:theme"
+}
