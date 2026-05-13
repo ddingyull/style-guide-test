@@ -35,7 +35,37 @@ Built with Next.js 15, TypeScript, Tailwind CSS v4, and based on the [official s
 
 ## Installation Methods
 
-### Method 1: Direct URL
+### Method 1: Install All Components at Once (Recommended)
+
+**Step 1**: Add the Nomos registry to your `components.json`:
+
+```json
+{
+  "registries": {
+    "@nomos": "https://nomos-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+**Step 2**: Download and run the installation script:
+
+```bash
+# Download the script
+curl -O https://raw.githubusercontent.com/your-org/nomos-ui/main/install-all-components.sh
+
+# Make it executable and run
+chmod +x install-all-components.sh && ./install-all-components.sh
+```
+
+Or in one command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/your-org/nomos-ui/main/install-all-components.sh | bash
+```
+
+This will install all 16 components automatically.
+
+### Method 2: Direct URL
 
 Install components directly from the registry URL:
 
@@ -43,7 +73,7 @@ Install components directly from the registry URL:
 pnpm dlx shadcn@latest add https://nomos-ui.vercel.app/r/button.json
 ```
 
-### Method 2: Registry Alias (Recommended)
+### Method 3: Registry Alias
 
 Add the registry to your `components.json`:
 
