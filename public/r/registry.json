@@ -1,14 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "nomos",
-  "homepage": "https://github.com/ddingyull/style-guide-test",
+  "homepage": "https://github.com/YOUR_USERNAME/nomos-ui",
   "items": [
     {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
       "description": "A button component with black border and sharp corners.",
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "registry/nomos/ui/button.tsx",
@@ -45,7 +48,10 @@
       "type": "registry:lib",
       "title": "Utils",
       "description": "Utility functions for className merging with tailwind-merge and clsx.",
-      "dependencies": ["clsx", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "files": [
         {
           "path": "registry/nomos/lib/utils.ts",

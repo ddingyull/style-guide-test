@@ -1,14 +1,5 @@
 # 빠른 설정 가이드
 
-## 완료된 작업
-
-✅ 프로젝트 정리 - 불필요한 컴포넌트 모두 제거
-✅ 3개 컴포넌트만 유지: Button, Input, Card (모두 검정색 테두리)
-✅ registry.json을 최소 구성으로 업데이트
-✅ 테마 단순화
-✅ Registry 파일 빌드 완료 (`public/r/`에 생성됨)
-✅ 종합 README.md 작성 완료
-
 ## 다음 단계
 
 ### 1. registry.json에 GitHub 사용자명 업데이트
@@ -84,6 +75,132 @@ export default function MyPage() {
   )
 }
 ```
+
+## 디자인 업데이트 시 일괄 반영 방법
+
+nomos-ui의 디자인이 업데이트되어 Patent-Secretary에 일괄 반영하고 싶을 때:
+
+### 방법 1: 수동 재설치 (간단하지만 번거로움)
+
+```bash
+cd Patent-secretary
+
+# 각 컴포넌트 재설치 (덮어쓰기)
+npx shadcn@latest add @nomos/button --overwrite
+npx shadcn@latest add @nomos/input --overwrite
+npx shadcn@latest add @nomos/card --overwrite
+```
+
+### 방법 2: 스크립트로 일괄 업데이트 (권장)
+
+`Patent-secretary` 프로젝트에 업데이트 스크립트 생성:
+
+**update-components.sh** 파일 생성:
+
+```bash
+#!/bin/bash
+
+# 설치된 nomos 컴포넌트 목록
+COMPONENTS=("button" "input" "card")
+
+echo "🔄 nomos-ui 컴포넌트 업데이트 시작..."
+
+for component in "${COMPONENTS[@]}"; do
+  echo "📦 $component 업데이트 중..."
+  npx shadcn@latest add @nomos/$component --overwrite
+done
+
+echo "✅ 모든 컴포넌트 업데이트 완료!"
+```
+
+실행:
+
+```bash
+chmod +x update-components.sh
+./update-components.sh
+```
+
+### 방법 3: Git Submodule 방식 (고급)
+
+Patent-Secretary에서 nomos-ui를 submodule로 관리:
+
+```bash
+cd Patent-secretary
+
+# submodule 추가
+git submodule add https://github.com/YOUR_USERNAME/nomos-ui.git libs/nomos-ui
+
+# components.json 수정 - 로컬 경로 사용
+```
+
+```json
+{
+  "registries": {
+    "@nomos": "./libs/nomos-ui/public/r/{name}.json"
+  }
+}
+```
+
+업데이트 시:
+
+```bash
+cd Patent-secretary/libs/nomos-ui
+git pull origin main
+cd ../..
+./update-components.sh
+```
+
+### 방법 4: npm/pnpm 패키지로 배포 (최고급)
+
+nomos-ui를 npm 패키지로 만들기:
+
+1. **nomos-ui/package.json 수정**:
+
+```json
+{
+  "name": "@your-org/nomos-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": ["registry", "public"],
+  "publishConfig": {
+    "access": "public"
+  }
+}
+```
+
+2. **npm에 배포**:
+
+```bash
+cd nomos-ui
+npm publish
+```
+
+3. **Patent-Secretary에서 사용**:
+
+```json
+{
+  "dependencies": {
+    "@your-org/nomos-ui": "^1.0.0"
+  }
+}
+```
+
+```bash
+pnpm install
+npx shadcn@latest add @nomos/button
+```
+
+4. **업데이트 시**:
+
+```bash
+pnpm update @your-org/nomos-ui
+./update-components.sh
+```
+
+### 🎯 추천 방법
+
+**프로젝트 초기 단계**: 방법 2 (스크립트) - 간단하고 효과적
+**프로젝트가 커지면**: 방법 4 (npm 패키지) - 버전 관리 가능
 
 ## 컴포넌트 특징
 
